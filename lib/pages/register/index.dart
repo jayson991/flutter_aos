@@ -16,7 +16,9 @@ class RegisterPage extends StatelessWidget {
           child: Column(
             children: <Widget>[
               RegisterImage(),
-              RegisterForm(),
+              Expanded(
+                child: RegisterForm(),
+              ),
             ],
           ),
         ),

@@ -39,11 +39,9 @@ class _LoginFormState extends State<LoginForm> {
                 return 'Please enter your phone number';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              phoneNumber = value;
-            },
+            onSaved: (String value) => phoneNumber = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 20.0),
@@ -70,11 +68,9 @@ class _LoginFormState extends State<LoginForm> {
                 return 'Please enter your password';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              password = value;
-            },
+            onSaved: (String value) => password = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 40.0),

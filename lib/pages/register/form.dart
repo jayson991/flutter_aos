@@ -23,6 +23,15 @@ class _RegisterFormState extends State<RegisterForm> {
     });
   }
 
+  void validateAndSave() {
+    final FormState form = _formKey.currentState;
+    if (form.validate()) {
+      print('Form is valid');
+    } else {
+      print('Form is invalid');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -43,11 +52,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 return 'Please enter your phone number';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              phoneNumber = value;
-            },
+            onSaved: (String value) => phoneNumber = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 20.0),
@@ -74,11 +81,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 return 'Please enter your password';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              password = value;
-            },
+            onSaved: (String value) => password = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 20.0),
@@ -105,11 +110,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 return 'Please enter your password again';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              rePassword = value;
-            },
+            onSaved: (String value) => rePassword = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 20.0),
@@ -138,11 +141,9 @@ class _RegisterFormState extends State<RegisterForm> {
                 return 'Please enter your vcode';
               }
 
-              return value;
+              return null;
             },
-            onSaved: (String value) {
-              vCode = value;
-            },
+            onSaved: (String value) => vCode = value,
           ),
           Container(
             margin: const EdgeInsets.only(bottom: 40.0),
@@ -156,6 +157,7 @@ class _RegisterFormState extends State<RegisterForm> {
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 // textTheme: ButtonTextTheme.primary,
                 onPressed: () {
+                  print(_formKey.currentState.validate());
                   if (_formKey.currentState.validate()) {
                     _formKey.currentState.save();
                     print(
